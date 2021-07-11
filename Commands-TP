@@ -1,0 +1,12 @@
+# Les commandes Docker
+
+docker network create --driver=bridge --subnet=192.168.2.0/24 sharednetwork
+
+docker run -it --name ubuntu1 --network sharednetwork -d ubuntu /bin/bash
+#l'option -it permet de garder la session ouverte
+
+docker volume create --name share
+docker run -it --name ubuntu2 -v share:/tmp -d ubuntu /bin/bash
+
+
+
